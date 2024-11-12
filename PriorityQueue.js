@@ -38,6 +38,15 @@ class PriorityQueue {
         return this.#queue.length;
     }
 
+    remove(index) {
+        if (index >= 0 && index < this.#queue.length) {
+            this.#queue.splice(index, 1);
+            return true;
+        }
+
+        return false;
+    }
+
     isEmpty() {
         return this.size() == 0;
     }

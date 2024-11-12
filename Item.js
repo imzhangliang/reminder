@@ -10,6 +10,26 @@ Date.prototype.addMonths = function(months) {
     return date;
 }
 
+function toIsoString(date) {
+  var tzo = -date.getTimezoneOffset(),
+      dif = tzo >= 0 ? '+' : '-',
+      pad = function(num) {
+          return (num < 10 ? '0' : '') + num;
+      };
+
+  return date.getFullYear() +
+      '-' + pad(date.getMonth() + 1) +
+      '-' + pad(date.getDate()) +
+      ' ' + pad(date.getHours()) +
+      ':' + pad(date.getMinutes()) +
+      ':' + pad(date.getSeconds());
+
+    // skip the timezone information
+    //+
+    // dif + pad(Math.floor(Math.abs(tzo) / 60)) +
+    //  ':' + pad(Math.abs(tzo) % 60);
+}
+
 
 class Item {
     #nextDate = null;
@@ -95,10 +115,18 @@ class Item {
         return this.#nextDate;
     }
 
+    nextDateString() {
+        return toIsoString(this.#nextDate);
+    }
+
     // for the items which have been put in todo list
     // If this item is a recurring item, then it can have both currDate() and nextDate() value, and they are actually the same object in both two lists
     currDate() {
         return this.#currDate;
+    }
+
+    currDateString() {
+        return toIsoString(this.#currDate);
     }
 
 }

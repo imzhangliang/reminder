@@ -29,7 +29,7 @@ addBtn.addEventListener('click', function() {
     let repeatUnit = document.querySelector("#repeatUnit").value || '';
     let repeatNum = parseInt(document.querySelector("#repeatNum").value) || 0;
 
-    if (!isNaN(date) && text && repeatUnit && repeatNum) {
+    if (!isNaN(date) && text) {
         let item = new Item(date, text, (repeatUnit && repeatNum) ? { unit: repeatUnit, repeat: repeatNum } : null);
         scheduledList.add(item);
     } else {
