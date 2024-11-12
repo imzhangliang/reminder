@@ -1,0 +1,41 @@
+<html>
+<head>
+<style type="text/css">
+    #scheduledList, #todoList {
+        width: 500px;
+        height: 600px;
+        border: 1px solid black;
+        float: left;
+        margin: 15px;
+    }
+</style>
+</head>
+<body>
+<div>
+    <div id="addItem">
+        Date: <input id="date" type="text" />
+        Text: <input id="text" type="text" />
+        Repeat Type: <select id="repeatUnit">
+            <option>day</option>
+            <option>week</option>
+            <option>month</option>
+            <option>year</option>
+        </select>
+        Repeat: <input size="5" id="repeatNum" type="text" />
+        <button id="addBtn">Add</button>
+    </div>
+    <div id="main">
+        <div id="scheduledList">
+            <p class="caption">Scheduled List</p>
+            <div class="body"></div>
+        </div>
+        <div id="todoList">
+            <p class="caption">Todo List</p>
+            <div class="body"></div>
+            <button id="doneBtn">done</button>
+        </div>
+    </div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
